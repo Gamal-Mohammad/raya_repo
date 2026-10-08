@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="LUXE - Premium e-commerce shopping experience." />
+  <title>LUXE — Premium Shopping</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --black: #080808;
+      --dark: #111111;
+      --dark-2: #181818;
+      --gold: #d4af37;
+      --gold-light: #f2d675;
+      --white: #ffffff;
+      --gray: #a5a5a5;
+      --border: rgba(212, 175, 55, 0.2);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    /* ================= HEADER ================= */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(8, 8, 8, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      height: 75px;
+      padding: 0 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 27px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 35px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #ddd;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .icon-btn {
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: transparent;
+      color: var(--white);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .icon-btn:hover {
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    .cart {
+      position: relative;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      width: 17px;
+      height: 17px;
+      background: var(--gold);
+      color: #000;
+      font-size: 10px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .menu-btn {
+      display: none;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      min-height: 100vh;
+      padding: 130px 25px 70px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 80% 45%, rgba(212, 175, 55, 0.16), transparent 32%),
+        radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.06), transparent 25%),
+        var(--black);
+    }
+
+    .hero-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 600px;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .hero h1 {
+      font-size: clamp(50px, 7vw, 85px);
+      line-height: 0.95;
+      margin-bottom: 25px;
+      font-weight: 900;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .hero-description {
+      color: var(--gray);
+      max-width: 500px;
+      font-size: 17px;
+      margin-bottom: 35px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 28px;
+      border-radius: 3px;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.3s;
+      border: 1px solid var(--gold);
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #080808;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    .btn-outline:hover {
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    .hero-image {
+      height: 600px;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(212, 175, 55, 0.2), transparent),
+        #151515;
+      border: 1px solid var(--border);
+    }
+
+    .hero-product {
+      width: 75%;
+      height: 75%;
+      position: absolute;
+      top: 12%;
+      left: 12%;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 35% 30%, #f5df88, #b38b22 30%, #211900 70%);
+      box-shadow:
+        0 0 100px rgba(212, 175, 55, 0.25),
+        inset -30px -30px 70px rgba(0,0,0,0.5);
+    }
+
+    .hero-product::after {
+      content: "LUXE";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 55px;
+      letter-spacing: 10px;
+      font-weight: 900;
+      color: rgba(255,255,255,0.75);
+      transform: rotate(-15deg);
+    }
+
+    .floating-card {
+      position: absolute;
+      bottom: 35px;
+      left: 30px;
+      right: 30px;
+      padding: 18px 20px;
+      background: rgba(8,8,8,0.88);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .floating-card small {
+      color: var(--gray);
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .price {
+      color: var(--gold);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    /* ================= BRANDS ================= */
+
+    .brands {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 30px 25px;
+      background: #0d0d0d;
+    }
+
+    .brands-container {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      color: #666;
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+
+    /* ================= GENERAL ================= */
+
+    section {
+      padding: 100px 25px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .section-header .eyebrow {
+      margin-bottom: 10px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(32px, 5vw, 48px);
+      margin-bottom: 12px;
+    }
+
+    .section-header p {
+      color: var(--gray);
+      max-width: 600px;
+      margin: auto;
+    }
+
+    /* ================= CATEGORIES ================= */
+
+    .categories {
+      background: #0b0b0b;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .category {
+      min-height: 220px;
+      border: 1px solid var(--border);
+      background: var(--dark);
+      display: flex;
+      align-items: flex-end;
+      padding: 25px;
+      position: relative;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .category:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold);
+    }
+
+    .category::before {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: rgba(212,175,55,0.12);
+      top: 25px;
+      right: 20px;
+      transition: 0.4s;
+    }
+
+    .category:hover::before {
+      transform: scale(1.3);
+    }
+
+    .category-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .category-number {
+      color: var(--gold);
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+
+    .category h3 {
+      font-size: 23px;
+    }
+
+    /* ================= PRODUCTS ================= */
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .product-card {
+      background: var(--dark);
+      border: 1px solid rgba(255,255,255,0.07);
+      transition: 0.3s;
+      overflow: hidden;
+    }
+
+    .product-card:hover {
+      transform: translateY(-7px);
+      border-color: var(--border);
+    }
+
+    .product-image {
+      height: 280px;
+      background:
+        radial-gradient(circle at center, rgba(212,175,55,0.25), transparent 60%),
+        #171717;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .product-shape {
+      width: 145px;
+      height: 185px;
+      border-radius: 25px 25px 40px 40px;
+      background: linear-gradient(120deg, #f4d875, #8b6817 50%, #1b1404);
+      box-shadow: 15px 20px 35px rgba(0,0,0,0.5);
+    }
+
+    .product-shape.round {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+    }
+
+    .product-shape.square {
+      width: 165px;
+      height: 165px;
+      border-radius: 15px;
+    }
+
+    .product-shape.tall {
+      width: 90px;
+      height: 205px;
+      border-radius: 18px;
+    }
+
+    .sale {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: var(--gold);
+      color: #000;
+      padding: 5px 10px;
+      font-size: 10px;
+      font-weight: bold;
+    }
+
+    .product-info {
+      padding: 20px;
+    }
+
+    .product-category {
+      color: var(--gray);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .product-info h3 {
+      font-size: 17px;
+      margin: 6px 0 12px;
+    }
+
+    .product-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .product-price {
+      color: var(--gold);
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .add-btn {
+      width: 36px;
+      height: 36px;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--gold);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .add-btn:hover {
+      background: var(--gold);
+      color: #000;
+    }
+
+    /* ================= PROMO ================= */
+
+    .promo {
+      padding: 0 25px 100px;
+    }
+
+    .promo-box {
+      max-width: 1200px;
+      margin: auto;
+      min-height: 350px;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,0.95), rgba(0,0,0,0.5)),
+        radial-gradient(circle at 80%, #9a761b, #151515 45%);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      padding: 60px;
+    }
+
+    .promo-content {
+      max-width: 600px;
+    }
+
+    .promo h2 {
+      font-size: clamp(35px, 5vw, 58px);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .promo h2 span {
+      color: var(--gold);
+    }
+
+    .promo p {
+      color: var(--gray);
+      margin-bottom: 25px;
+    }
+
+    /* ================= FEATURES ================= */
+
+    .features {
+      background: #0b0b0b;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .feature {
+      text-align: center;
+      padding: 35px 25px;
+      border: 1px solid var(--border);
+      background: var(--dark);
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 23px;
+    }
+
+    .feature h3 {
+      margin-bottom: 10px;
+    }
+
+    .feature p {
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    /* ================= NEWSLETTER ================= */
+
+    .newsletter {
+      text-align: center;
+    }
+
+    .newsletter-box {
+      max-width: 750px;
+      margin: auto;
+    }
+
+    .newsletter h2 {
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+
+    .newsletter p {
+      color: var(--gray);
+      margin-bottom: 25px;
+    }
+
+    .subscribe {
+      display: flex;
+      max-width: 550px;
+      margin: auto;
+    }
+
+    .subscribe input {
+      flex: 1;
+      min-width: 0;
+      padding: 16px;
+      background: var(--dark);
+      color: white;
+      border: 1px solid var(--border);
+      outline: none;
+    }
+
+    .subscribe input:focus {
+      border-color: var(--gold);
+    }
+
+    .subscribe button {
+      padding: 0 25px;
+      background: var(--gold);
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 60px 25px 25px;
+      background: #050505;
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 50px;
+    }
+
+    .footer-brand p {
+      color: var(--gray);
+      max-width: 300px;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .footer-column h4 {
+      color: var(--gold);
+      margin-bottom: 18px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .footer-column a {
+      display: block;
+      color: #999;
+      margin-bottom: 10px;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .footer-column a:hover {
+      color: var(--gold);
+    }
+
+    .copyright {
+      max-width: 1200px;
+      margin: 50px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid #222;
+      color: #666;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    /* ================= TOAST ================= */
+
+    .toast {
+      position: fixed;
+      right: 25px;
+      bottom: 25px;
+      background: var(--gold);
+      color: #000;
+      padding: 14px 20px;
+      font-weight: bold;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: 0.3s;
+      z-index: 2000;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero-container {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        height: 450px;
+      }
+
+      .category-grid,
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        padding: 0 18px;
+      }
+
+      .logo {
+        font-size: 21px;
+      }
+
+      .hero {
+        padding-top: 110px;
+      }
+
+      .hero h1 {
+        font-size: 52px;
+      }
+
+      .hero-image {
+        height: 350px;
+      }
+
+      .hero-product {
+        width: 65%;
+        height: 65%;
+      }
+
+      .brand {
+        font-size: 14px;
+      }
+
+      section {
+        padding: 70px 18px;
+      }
+
+      .category-grid,
+      .product-grid,
+      .feature-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .promo {
+        padding: 0 18px 70px;
+      }
+
+      .promo-box {
+        padding: 40px 25px;
+      }
+
+      .subscribe {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .subscribe button {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav class="navbar">
+      <a href="#" class="logo">LUXE</a>
+
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#products">Shop</a></li>
+        <li><a href="#features">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="icon-btn" aria-label="Search">⌕</button>
+
+        <button class="icon-btn cart" aria-label="Shopping cart">
+          🛒
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+
+        <button class="icon-btn menu-btn" aria-label="Menu">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-container">
+
+        <div class="hero-content">
+          <div class="eyebrow">New Collection 2026</div>
+
+          <h1>
+            Elevate<br />
+            Your <span>Style.</span>
+          </h1>
+
+          <p class="hero-description">
+            Discover premium products crafted for people who appreciate
+            exceptional design, quality, and timeless elegance.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#products" class="btn btn-primary">
+              Shop Collection →
+            </a>
+
+            <a href="#categories" class="btn btn-outline">
+              Explore Categories
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-image">
+          <div class="hero-product"></div>
+
+          <div class="floating-card">
+            <div>
+              <small>Featured Product</small>
+              <strong>Signature Collection</strong>
+            </div>
+            <div class="price">$249</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BRANDS -->
+    <div class="brands">
+      <div class="brands-container">
+        <div class="brand">AURELIA</div>
+        <div class="brand">MONARCH</div>
+        <div class="brand">VELORA</div>
+        <div class="brand">NOIR</div>
+        <div class="brand">ELITE</div>
+      </div>
+    </div>
+
+    <!-- CATEGORIES -->
+    <section class="categories" id="categories">
+      <div class="container">
+
+        <div class="section-header">
+          <div class="eyebrow">Shop By Category</div>
+          <h2>Find Your Style</h2>
+          <p>
+            Explore our carefully selected collections designed for modern
+            lifestyles.
+          </p>
+        </div>
+
+        <div class="category-grid">
+
+          <a href="#" class="category">
+            <div class="category-content">
+              <div class="category-number">01</div>
+              <h3>Fashion</h3>
+            </div>
+          </a>
+
+          <a href="#" class="category">
+            <div class="category-content">
+              <div class="category-number">02</div>
+              <h3>Accessories</h3>
+            </div>
+          </a>
+
+          <a href="#" class="category">
+            <div class="category-content">
+              <div class="category-number">03</div>
+              <h3>Electronics</h3>
+            </div>
+          </a>
+
+          <a href="#" class="category">
+            <div class="category-content">
+              <div class="category-number">04</div>
+              <h3>Lifestyle</h3>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products">
+      <div class="container">
+
+        <div class="section-header">
+          <div class="eyebrow">Best Sellers</div>
+          <h2>Featured Products</h2>
+          <p>
+            Premium essentials selected for those who expect more.
+          </p>
+        </div>
+
+        <div class="product-grid">
+
+          <article class="product-card">
+            <div class="product-image">
+              <span class="sale">NEW</span>
+              <div class="product-shape"></div>
+            </div>
+
+            <div class="product-info">
+              <div class="product-category">Accessories</div>
+              <h3>Gold Signature Watch</h3>
+
+              <div class="product-bottom">
+                <div class="product-price">$299</div>
+                <button class="add-btn" onclick="addToCart('Gold Signature Watch')">
+                  +
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <div class="product-shape round"></div>
+            </div>
+
+            <div class="product-info">
+              <div class="product-category">Lifestyle</div>
+              <h3>Luxury Home Speaker</h3>
+
+              <div class="product-bottom">
+                <div class="product-price">$189</div>
+                <button class="add-btn" onclick="addToCart('Luxury Home Speaker')">
+                  +
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <span class="sale">-20%</span>
+              <div class="product-shape square"></div>
+            </div>
+
+            <div class="product-info">
+              <div class="product-category">Fashion</div>
+              <h3>Premium Leather Bag</h3>
+
+              <div class="product-bottom">
+                <div class="product-price">$159</div>
+                <button class="add-btn" onclick="addToCart('Premium Leather Bag')">
+                  +
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <div class="product-shape tall"></div>
+            </div>
+
+            <div class="product-info">
+              <div class="product-category">Electronics</div>
+              <h3>Elite Wireless Headphones</h3>
+
+              <div class="product-bottom">
+                <div class="product-price">$229</div>
+                <button class="add-btn" onclick="addToCart('Elite Wireless Headphones')">
+                  +
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PROMO -->
+    <section class="promo">
+      <div class="promo-box">
+        <div class="promo-content">
+          <div class="eyebrow">Limited Time</div>
+
+          <h2>
+            The Black & <span>Gold</span> Edit
+          </h2>
+
+          <p>
+            Get up to 40% off selected premium products.
+            Upgrade your collection before the offer ends.
+          </p>
+
+          <a href="#products" class="btn btn-primary">
+            Shop The Sale →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features" id="features">
+      <div class="container">
+
+        <div class="section-header">
+          <div class="eyebrow">Why Choose LUXE</div>
+          <h2>Shopping, Elevated</h2>
+        </div>
+
+        <div class="feature-grid">
+
+          <div class="feature">
+            <div class="feature-icon">✓</div>
+            <h3>Premium Quality</h3>
+            <p>
+              Every product is carefully selected to meet our high quality
+              standards.
+            </p>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon">↗</div>
+            <h3>Fast Delivery</h3>
+            <p>
+              Get your favorite products delivered quickly and safely to
+              your doorstep.
+            </p>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon">◇</div>
+            <h3>Secure Payment</h3>
+            <p>
+              Shop confidently with secure and reliable payment options.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter" id="contact">
+      <div class="newsletter-box">
+        <div class="eyebrow">Stay Updated</div>
+        <h2>Join The LUXE Club</h2>
+
+        <p>
+          Subscribe for exclusive offers, new arrivals, and private sales.
+        </p>
+
+        <form class="subscribe" onsubmit="subscribeUser(event)">
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email address"
+            required
+          />
+
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <div class="logo">LUXE</div>
+        <p>
+          Premium products. Timeless design. A shopping experience created
+          for those who value the extraordinary.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h4>Shop</h4>
+        <a href="#products">New Arrivals</a>
+        <a href="#products">Best Sellers</a>
+        <a href="#products">Sale</a>
+        <a href="#categories">Collections</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>Company</h4>
+        <a href="#">About Us</a>
+        <a href="#">Our Story</a>
+        <a href="#">Careers</a>
+        <a href="#">Contact</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>Support</h4>
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+        <a href="#">FAQ</a>
+        <a href="#">Privacy</a>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 LUXE. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    let cartCount = 0;
+
+    function addToCart(productName) {
+      cartCount++;
+      document.getElementById("cartCount").textContent = cartCount;
+
+      showToast(productName + " added to cart!");
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+
+      toast.textContent = message;
+      toast.classList.add("show");
+
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 2500);
+    }
+
+    function subscribeUser(event) {
+      event.preventDefault();
+
+      const email = document.getElementById("email").value;
+
+      if (email) {
+        showToast("Thanks for joining the LUXE Club!");
+        document.getElementById("email").value = "";
+      }
+    }
+  </script>
+
+</body>
+</html>
